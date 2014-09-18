@@ -60,6 +60,26 @@ LinkedList.prototype.remove = function(data) {
 };
 
 /**
+ * Remove duplicates from the list.
+ *
+ * @api public
+ */
+LinkedList.prototype.removeDuplicates = function() {
+  var table = {};
+  var prev = null;
+  var current = this.head;
+  while (current != null) {
+    if (table[current.data]) {
+      prev.next = current.next;
+    } else {
+      table[current.data] = true;
+      prev = current;
+    }
+    current = current.next;
+  }
+};
+
+/**
  * Return an array containing all of the elements in the list.
  *
  * @return {Array} An array containing all of the elements in the list.
