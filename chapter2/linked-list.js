@@ -85,9 +85,16 @@ LinkedList.prototype.removeDuplicates = function() {
  * @return {Array} An array containing all of the elements in the list.
  * @api public
  */
-LinkedList.prototype.toArray = function() {
+
+/**
+ * Return a list of elements.
+ *
+ * @param  {Node} [head] - A node to start loop from.
+ * @return {Node[]} An array containing list of elements.
+ */
+LinkedList.prototype.toArray = function(head) {
   var array = [];
-  var node = this.head;
+  var node = head || this.head;
   while (node !== null) {
     array.push(node.data);
     node = node.next;
@@ -107,6 +114,37 @@ LinkedList.prototype.forEach = function(callback) {
     node = node.next;
   }
 };
+
+/**
+ * Find the nth to last element of a list.
+ *
+ * Assumption: The minimum number of nodes in list is n.
+ * Algorithm:
+ *
+ *   1. Create two pointers, p1 and p2, that point to the beginning of the node.
+ *   2. Increment p2 by n positions, to make it point to the nth node from the
+ *      beginning (to make the distance of n between p1 and p2).
+ *   3. Check for p2->next == null if yes return value of p1, otherwise
+ *      increment p1 and p2. If next of p2 is null it means p1 points to the nth
+ *      node from the last as the distance between the two is n.
+ *   4. Repeat Step 3.
+ *
+ * @param  {Integer} n
+ * @return {Array}
+ * @api public
+ */
+LinkedList.prototype.nthToLast = function(n) {
+  var p1 = this.head;
+  var p2 = this.head;
+  for (var i = 0; i < n; i++) {
+    p2 = p2.next;
+  }
+  while (p2 !== null) {
+    p1 = p1.next;
+    p2 = p2.next;
+  }
+  return this.toArray(p1);
+}
 
 /**
  * Create a node.
