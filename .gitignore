@@ -1,1 +1,10 @@
+### C template
 *.o
+
+### Maven template
+target/
+
+### JetBrains template
+*.iml
+.idea/
+
