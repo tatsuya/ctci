@@ -1,6 +1,6 @@
-package com.tatsuyaoiw.chapter9;
+package com.tatsuyaoiw.chapter9.question1;
 
-public class Question1 {
+public class BruteForce {
 
 	void merge(int[] a, int[] b) {
 		for (int bi = 0; bi < b.length; bi++) {

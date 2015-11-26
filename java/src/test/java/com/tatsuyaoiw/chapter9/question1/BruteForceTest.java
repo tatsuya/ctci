@@ -1,4 +1,4 @@
-package com.tatsuyaoiw.chapter9;
+package com.tatsuyaoiw.chapter9.question1;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -7,12 +7,12 @@ import java.util.Arrays;
 
 import static org.junit.Assert.*;
 
-public class Question1Test {
-	private Question1 q;
+public class BruteForceTest {
+	private BruteForce q;
 
 	@Before
 	public void before() throws Exception {
-		q = new Question1();
+		q = new BruteForce();
 	}
 
 	@Test
